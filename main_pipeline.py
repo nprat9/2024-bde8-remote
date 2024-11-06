@@ -8,8 +8,8 @@ logging.basicConfig(level=logging.INFO)
 
 # Specify your BigQuery project ID and dataset.table name
 table_spec = (
-    'storied-store-437502-u9'
-    'nprat9_workshop2.nprat9_dfsqltable_sales'
+    'storied-store-437502-u9:'
+    'nprat9_workshop2.dfsqltable_sales'
 )
 
 # Define the schema for your BigQuery table
@@ -35,7 +35,7 @@ p = beam.Pipeline(options=pipeline_options)
 
 (p 
  | 'Read from PubSub' >> beam.io.ReadFromPubSub(
-     topic="projects/storied-store-437502-u9/topics/aekanun-transactions"  # Change to your PubSub topic
+     topic="projects/storied-store-437502-u9/topics/nprat9-transactions"  # Change to your PubSub topic
  )
  | 'Cleanse Data' >> beam.Map(cleanse_data)  # Referencing the cleansing function
  | 'Write to BigQuery' >> beam.io.WriteToBigQuery(
