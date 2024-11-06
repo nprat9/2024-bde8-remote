@@ -27,7 +27,7 @@ pipeline_args = [
     '--staging_location=gs://nprat9_workshop2/temp/staging/',  # Change to your bucket path
     '--temp_location=gs://nprat9_workshop2/temp',  # Change to your bucket path
     '--streaming',
-    '--setup_file=./setup.py',  # Point to your setup file
+    '--setup_file=./setup.py',  # Point to your setup files
 ]
 
 pipeline_options = beam.options.pipeline_options.PipelineOptions(pipeline_args)
