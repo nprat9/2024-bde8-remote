@@ -42,7 +42,9 @@ p = beam.Pipeline(options=pipeline_options)
        table=table_spec,
        schema=schema,
        write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND,
-       create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED
+       create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
+       batch_size=20, # รวบรวม 20 record แล้วจึงส่ง
+       trigger_frequency=15  # ส่งทุก 10 วินาที ถ้ายังไม่ครบ batch_size
    )
 )
 
