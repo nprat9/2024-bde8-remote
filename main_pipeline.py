@@ -49,7 +49,7 @@ p = beam.Pipeline(options=pipeline_options)
 result = p.run()
 result.wait_until_finish()
 
-# Grabbing job ID and region info to save in a file
+# Grabbing job ID and region info to save in a files
 job_id = result._job.id
 region = 'us-central1'  # Adjust as per your GCP region
 
